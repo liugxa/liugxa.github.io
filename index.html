@@ -1,1 +1,14 @@
-Hello! there is the liugxa blog pages
+#RateLimit
+https://guava.dev/releases/19.0/api/docs/com/google/common/util/concurrent/RateLimiter.html#create(double)
+
+## 使用RateLimit
+https://blog.csdn.net/fanrenxiang/article/details/80949079
+https://www.jianshu.com/p/8f548e469bbe
+
+## 问题
+* 单作者发现，10个并发访问总是只有6个能获取到许可，结论就是能获取到RateLimiter.create(n)中n+1个许可
+* 这个问题是由于RateLimiter发生了"令牌预支付"(可以看com.google.common.util.concurrent.SmoothRateLimiter#resync这个方法是怎么计算桶内存储的令牌数的)
+
+## 引申
+* 需要了解RateLimit的限流以及源码解析 https://cloud.tencent.com/developer/article/1625114
+
